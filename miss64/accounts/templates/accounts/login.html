@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'miss/web.css' %}">
+</head>
+<br><br><br>
+<h1>Login</h1>
+<br><br>
+<form action="" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" class="btn btn-secondary btn-sm" value="로그인!">
+</form>
+<br><br><br>
+<form action="{% url 'elec:index' %}">
+    <input type="submit" class="btn btn-dark btn-sm" value="Main으로">
+</form>
+
+{% endblock %}
