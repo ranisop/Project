@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'miss/web.css' %}">
+</head>
+<br><br><br>
+<h1>Edit User</h1>
+<br><br>
+<form action="" method="POST">
+    {% csrf_token %}
+    
+    <h4>{{ form.username.label }}</h4>
+    <div>{{ form.username }}</div>
+    <div>{{ form.username.help_text }}</div>
+    <br>
+    <h4>{{ form.email.label }}</h4>
+    <div>{{ form.email }}</div>
+
+    <a href="{% url 'accounts:password' %}">비밀번호 변경</a>
+    <br>
+    <input type="submit" class="btn btn-secondary btn-sm" value='수정하기'>
+</form>
+<br>
+<form action="{% url 'accounts:delete' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" class="btn btn-danger btn-sm" value='회원탈퇴'>
+<hr>
+</form>
+<br>
+<form action="{% url 'elec:index' %}">
+    <input type="submit" class="btn btn-dark btn-sm" value="Main으로">
+</form>
+
+{% endblock %}
